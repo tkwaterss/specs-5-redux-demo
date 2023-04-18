@@ -3,23 +3,23 @@ import "./App.css";
 
 //! Redux imports
 import { useSelector, useDispatch } from "react-redux";
+import Header from "./components/Header";
+import { Routes, Route } from "react-router-dom";
+import AdminScreen from './screens/AdminScreen';
+import AddEmployeeScreen from './screens/AddEmployeeScreen'
+import EmployeeScreen from './screens/EmployeeScreen'
 
 function App() {
-  //^ getting state values to display
-  const name = useSelector((state) => state.name);
 
-  const dispatch = useDispatch();
-
-  const handleClick = () => {
-    let nameArr = ['Tobin', 'Jeremy', 'Billy', 'Bobby', 'Timmy', 'Tommy']
-    let newName = nameArr[Math.floor(Math.random() * nameArr.length)]
-    dispatch({ type: "CHANGE_NAME", payload: newName });
-  };
 
   return (
     <div className="App">
-      <h1>{name}</h1>
-      <button onClick={handleClick}>Change Name</button>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<AdminScreen />}></Route>
+        <Route path="/new" element={<AddEmployeeScreen />}></Route>
+        <Route path="/employee/:id" element={<EmployeeScreen />}></Route>
+      </Routes>
     </div>
   );
 }
