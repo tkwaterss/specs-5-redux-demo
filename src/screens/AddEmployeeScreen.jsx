@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef } from "react";
+import {useDispatch} from 'react-redux'
 
 const AddEmployeeScreen = () => {
   const firstRef = useRef();
@@ -8,6 +9,7 @@ const AddEmployeeScreen = () => {
   const phoneRef = useRef();
   const salaryRef = useRef();
   const positionRef = useRef();
+  const dispatch = useDispatch();
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -25,7 +27,7 @@ const AddEmployeeScreen = () => {
     };
 
     console.log(newEmp);
-
+    dispatch({type: 'ADD_EMPLOYEE', payload: newEmp})
   };
 
   return (

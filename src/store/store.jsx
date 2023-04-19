@@ -6,8 +6,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case ""
-    //   return
+    case "ADD_EMPLOYEE":
+      return {...state, employees: [...state.employees, action.payload]}
     default:
       return state;
   }

@@ -179,5 +179,8 @@ form {
   color: green;
 }
 
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 /* ? CREATED BY BRADYYYYYY */
